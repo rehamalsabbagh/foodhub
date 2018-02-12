@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rehams Restaurants</title>
+</head>
+<body>
+       <h1>{{restaurant.name}}</h1>
+       <h2>{{restaurant.description}}</h2>
+       <strong>Opening time: </strong><strong>{{restaurant.openingtime}}</strong><br/>
+       <strong>Closing time: </strong><strong>{{restaurant.closingtime}}</strong><br/>
+       <a href="{% url 'list' %}">Back</a>
+</body>
+</html>
