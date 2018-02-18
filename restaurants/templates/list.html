@@ -1,19 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>List of my restaurants</title>
-</head>
-<body>
-       <h1>Restaurants List:</h1>
+{% extends 'base.html'%}
+{% block nameme %}
+       My Restraunts
+{% endblock %}
+
+{% block bodycontent %}
+
+       <div class="row">
+
        {% for rest in restaurants %}
-       <a href="{% url 'detail' my_id=rest.id %}">
-              <ul>
-                     <li><strong>Name:</strong><i> {{rest.name}}</i></li>
-                     <li><strong>Description:</strong><i> {{rest.description}}</i></li>
-                     <li><strong>Opening time:</strong><i> {{rest.openingtime}}</i></li>
-                     <li><strong>Closing time:</strong><i> {{rest.closingtime}}</i></li>
-              </ul>  
-       </a>
+         <div class="col-lg-4">
+           <div class="card">
+             <div class="card-body">
+              <img class="card-img-top" src="{{rest.logo}}" alt="Card image cap">
+               <h5 class="card-title">{{rest.name}}</h5>
+               <p class="card-text">{{rest.description}}</p>
+               <p class="card-text">{{rest.openingtime}}</p>
+               <p class="card-text">{{rest.closingtime}}</p>
+               <a href="{% url 'detail' my_id=rest.id %}" class="btn btn-primary">Read More</a>
+             </div>
+           </div>
+         </div>
+
        {% endfor %}
-</body>
-</html>
+       </div>
+       <div class="row">
+         <div class="col-lg-12">
+              <a href="{% url 'form' %}" class="btn btn-primary full-width-button">Add A New Restaurant</a>
+         </div>
+       </div>    
+
+
+{% endblock %}

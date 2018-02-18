@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block nameme %}
+	Update Restraunt
+{% endblock %}
+{% block bodycontent %}
+
+
+	<form action="{% url 'update' res_id=resobj.id %}" method="POST">
+		{% csrf_token %}
+		{{my_form|crispy}}
+		<input type="submit" value="Update me!">	
+	</form>
+
+{% endblock %}

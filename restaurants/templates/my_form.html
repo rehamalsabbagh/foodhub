@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+{% block nameme %}
+	Add Restraunt
+{% endblock %}
+
+{% block bodycontent %}
+
+	<form action="{% url 'form' %}" method="POST">
+		{% csrf_token %}
+		{{my_form|crispy}}
+		<input type="submit" name="Create">	
+	</form>
+
+{% endblock %}
