@@ -1,28 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 	<style type="text/css">
-		body{
-			background-image: url(http://gf-verified.com/wp-content/uploads/2016/06/Main-Background.jpg)!important;
-			background-size:110% !important;
-		}
-		.card{
-			   margin: 10px 0px 10px 0px;
-		}
 		.navbar{
 			background-color: #272727; 
-		}
-		.navbar-brand{
-			color:#fff !important;
-		}
-		.card-img-top{
-			width:70px !important;
-			height: 70px !important;
-			margin: 10px 0px 10px 0px !important;
-		}
-		.full-width-button{
-			width:100%;
-			margin-top:20px;
+			justify-content: baseline !important;
 		}
 	</style>
 	<title>
@@ -30,6 +13,9 @@
 	{% endblock %}
 	</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'style.css' %}" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -39,6 +25,21 @@
     <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
     Foodhub
   </a>
+  {% if request.user.is_authenticated %}
+   <li class="nav-item">
+  	<a class="btn btn-primary" href="">{{request.user}}</a>
+  </li>
+  <li class="nav-item">
+  	<a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+  </li>
+  {% else %}
+   <li class="nav-item">
+  	<a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+  </li>
+   <li class="nav-item">
+  	<a class="btn btn-primary" href="{% url 'register' %}">Register</a>
+  </li> 
+  {% endif %}
 </nav>
 
 	<div class="container">
@@ -49,5 +50,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </body>
 </html>

@@ -6,10 +6,10 @@
 {% block bodycontent %}
 
 
-	<form action="{% url 'update' res_id=resobj.id %}" method="POST">
+	<form action="{% url 'update' res_id=resobj.id %}" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{my_form|crispy}}
-		<input type="submit" value="Update me!">	
+		<input type="submit" value="Update me!" class="btn btn-primary full-width-button">	
 	</form>
 
 {% endblock %}

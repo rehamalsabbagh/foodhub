@@ -2,14 +2,14 @@
 {% load crispy_forms_tags %}
 
 {% block nameme %}
-	Add Restraunt
+	Add Item
 {% endblock %}
 
 {% block bodycontent %}
 
-	<form action="{% url 'form' %}" method="POST" enctype="multipart/form-data">
+	<form action="{% url 'create_item' res_id=resobj.id %}" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{my_form|crispy}}
+		{{my_item|crispy}}
 		<input type="submit" name="Create" class="btn btn-primary full-width-button">	
 	</form>
 

@@ -1,0 +1,27 @@
+		body{
+			background-image: url(http://gf-verified.com/wp-content/uploads/2016/06/Main-Background.jpg)!important;
+			background-size:110% !important;
+		}
+		.card{
+			   margin: 10px 0px 10px 0px;
+		}
+		.navbar{
+			background-color: #272727; 
+			justify-content: baseline !important;
+		}
+		.navbar-brand{
+			color:#fff !important;
+		}
+		.card-img-top{
+			width:70px !important;
+			height: 70px !important;
+			margin: 10px 0px 10px 0px !important;
+		}
+		.full-width-button{
+			width:100%;
+			margin-top:20px;
+		}
+		.custom-button{
+			width: 100px !important;
+			margin: 10px 0px 10px 0px !important
+		}

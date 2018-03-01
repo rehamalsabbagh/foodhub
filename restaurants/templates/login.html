@@ -2,15 +2,15 @@
 {% load crispy_forms_tags %}
 
 {% block nameme %}
-	Add Restraunt
+	User Login
 {% endblock %}
 
 {% block bodycontent %}
 
-	<form action="{% url 'form' %}" method="POST" enctype="multipart/form-data">
+	<form action="{% url 'login' %}" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{my_form|crispy}}
-		<input type="submit" name="Create" class="btn btn-primary full-width-button">	
+		<input type="submit" name="login" class="btn btn-primary full-width-button">	
 	</form>
 
 {% endblock %}

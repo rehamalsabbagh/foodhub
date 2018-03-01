@@ -11,7 +11,9 @@
          <div class="col-lg-4">
            <div class="card">
              <div class="card-body">
-              <img class="card-img-top" src="{{rest.logo}}" alt="Card image cap">
+              {% if rest.logo %}
+                <img class="card-img-top" src="{{rest.logo.url}}" alt="Card image cap">
+              {% endif %}
                <h5 class="card-title">{{rest.name}}</h5>
                <p class="card-text">{{rest.description}}</p>
                <p class="card-text">{{rest.openingtime}}</p>
