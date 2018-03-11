@@ -23,10 +23,11 @@
                <p class="card-text">{{restaurant.openingtime}}</p>
                <p class="card-text">{{restaurant.closingtime}}</p>
 
-           <button class="btn btn-secondary custom-button" onclick="favourateButton()">
-              <span></span>
-              <i class="fas fa-star"></i>
-           </button><br/><br/>
+           <button class="btn btn-secondary custom-button" onclick="favourateButton({{restaurant.id}})">
+              <span id="fav-text">{{restaurant.favouraterestaurant_set.count}}</span>
+              <i id="fav-shape" class="fas fa-star {% if restaurant in fav_items %}text-warning{% endif %}"></i>
+           </button>
+           <br/><br/>
 		       <a class="btn btn-primary custom-button" href="{% url 'update' res_id=restaurant.id %}">Update</a><br/>
 		       <a class="btn btn-primary custom-button" href="{% url 'delete' res_id=restaurant.id %}">Delete</a><br/>
 		       <a class="btn btn-primary custom-button" href="{% url 'list' %}">Back</a><br/>
@@ -51,8 +52,26 @@
        </div>
 
        <script type="text/javascript">
-         function favourateButton(){
-          alert('I was clicked !');
+        
+         function favourateButton(id){
+          $.ajax({
+            type:'GET',
+            url: '/favourate_res/'+id+'/',
+            error: function(data) {
+              console.log('Not working!');
+            },
+            success:function(data) {
+              console.log(data);
+              if(data.action==='fav'){
+                $('#fav-shape').addClass('text-warning');
+                $('#fav-text').text(data.fav_num);
+              }
+              else{
+                $('#fav-shape').removeClass('text-warning');
+                $('#fav-text').text(data.fav_num);
+              }
+            },
+          });
          }
        </script>
 

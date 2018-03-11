@@ -30,6 +30,7 @@ urlpatterns = [
     path('login/', views.user_login, name="login"),
     path('logout/', views.user_logout, name="logout"),
     path('create_item/<int:res_id>/', views.create_item, name="create_item"),
+    path('favourate_res/<int:res_id>/', views.favourate_res, name="favourate_res"),
 ]
 
 if settings.DEBUG:
